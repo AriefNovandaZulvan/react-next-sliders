@@ -1,5 +1,28 @@
 import React, { useState } from "react";
-import "../theme/slicing_slider.css";
+import "./slicing_slider.css";
+
+const TRANSITIONS = [
+  {
+    name: "slideUp",
+    out: "slide-up-out",
+    in: "slide-down-in",
+  },
+  {
+    name: "slideDown",
+    out: "slide-down-out",
+    in: "slide-up-in",
+  },
+  {
+    name: "fade",
+    out: "fade-out",
+    in: "fade-in",
+  },
+  {
+    name: "flip",
+    out: "flip-out",
+    in: "flip-in",
+  },
+];
 
 export default function SlicingSlider({
   images = [],
@@ -9,10 +32,17 @@ export default function SlicingSlider({
 }) {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [currentTransition, setCurrentTransition] = useState(TRANSITIONS[0]);
 
   const nextSlide = () => {
     if (animating) return;
     setAnimating(true);
+
+    // Pick a random transition for the next slide
+    const nextTransition =
+      TRANSITIONS[Math.floor(Math.random() * TRANSITIONS.length)];
+    setCurrentTransition(nextTransition);
+
     setTimeout(() => {
       setCurrent((current + 1) % images.length);
       setAnimating(false);
@@ -27,7 +57,7 @@ export default function SlicingSlider({
         {Array.from({ length: slices }).map((_, i) => (
           <div
             key={`current-${i}`}
-            className={`slice current ${animating ? "animate-out" : ""}`}
+            className={`slice current ${animating ? currentTransition.out : ""}`}
             style={{
               left: `${i * sliceWidth}%`,
               width: `${sliceWidth}%`,
@@ -51,7 +81,7 @@ export default function SlicingSlider({
           Array.from({ length: slices }).map((_, i) => (
             <div
               key={`next-${i}`}
-              className={`slice next animate-in`}
+              className={`slice next ${currentTransition.in}`}
               style={{
                 left: `${i * sliceWidth}%`,
                 width: `${sliceWidth}%`,

@@ -1,0 +1,61 @@
+.slicing-slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slice {
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.slice img {
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden; /* needed for flip */
+  transform-style: preserve-3d;
+}
+
+/* === Slide Up === */
+.slice.slide-up-out {
+  transform: translateY(-100%);
+}
+.slice.slide-up-in {
+  transform: translateY(100%);
+}
+
+/* === Slide Down === */
+.slice.slide-down-out {
+  transform: translateY(100%);
+}
+.slice.slide-down-in {
+  transform: translateY(-100%);
+}
+
+/* === Fade === */
+.slice.fade-out {
+  opacity: 0;
+}
+.slice.fade-in {
+  opacity: 0;
+}
+
+/* === Flip === */
+.slice.flip-out {
+  transform: rotateY(90deg);
+  transform-origin: center;
+}
+.slice.flip-in {
+  transform: rotateY(-90deg);
+  transform-origin: center;
+}

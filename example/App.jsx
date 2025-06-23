@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <h1>Click Slider to Next Slide</h1>
-      <SlicingSlider class="{width : 100%}" images={images} slices={5} duration={300} delay={50} />
+      <SlicingSlider class="{width : 100%}" images={images} slices={5} duration={500} delay={150} />
     </div>
   );
 }
