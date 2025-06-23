@@ -1,0 +1,32 @@
+{
+  "name": "my-awesome-slider",
+  "version": "0.1.0",
+  "description": "A simple reusable slider component for React",
+  "main": "dist/my-awesome-slider.umd.js",
+  "module": "dist/my-awesome-slider.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite --config vite.config.js",
+    "build": "vite build --config vite.config.js",
+    "preview": "vite preview --config vite.config.js"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^5.0.0"
+  },
+  "keywords": [
+    "react",
+    "slider",
+    "component",
+    "ui"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

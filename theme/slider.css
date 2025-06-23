@@ -1,0 +1,13 @@
+/* src/slider.css */
+
+.my-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.my-slider .slide {
+  padding: 1rem;
+  background: #eee;
+  border: 1px solid #ccc;
+  margin: 0.5rem 0;
+}
